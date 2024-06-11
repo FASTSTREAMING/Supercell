@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Contacto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="logo.png" alt="Logo de la Empresa" class="logo"> <!-- Asegúrate de reemplazar 'logo.png' con la ruta correcta de tu logo -->
+            <h1>Barato Supercell Shop</h1>
+        </header>          
+        <h1>Formulario de Contacto</h1>
+        <p>Por favor, <a href="#termsModal" id="termsLink" class="terms-link">lee y acepta los términos y condiciones</a> antes de enviar tus datos.</p>
+        
+        <form id="contactForm">
+            <div class="input-container">
+                <i class="fas fa-user icon"></i>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="input-container">
+                <i class="fas fa-user icon"></i>
+                <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required>
+            </div>
+            <div class="input-container">
+                <i class="fas fa-phone icon"></i>
+                <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono" required>
+            </div>
+            
+            <div class="checkbox">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">He leído y aceptado los términos y condiciones.</label>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+        
+        <div id="whatsappLink" style="display: none;">
+            <a href="" target="_blank">Enviar a WhatsApp</a>
+        </div>
+    </div>
+
+    <div id="thankYouPopup" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Gracias por aceptar los términos y condiciones. Te redireccionaremos a WhatsApp en breve.</p>
+            <div id="progressBar" style="width: 0%; height: 20px; background-color: #4CAF50;"></div>
+        </div>
+    </div>
+
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <header>
+                <h1>Términos y Condiciones</h1>
+            </header>
+            <main>
+                <p><strong>1. Introducción</strong></p>
+                <p>Bienvenido a Barato Store Supercell. Estos Términos y Condiciones rigen el uso de nuestro sitio web y los servicios proporcionados. Al acceder o utilizar nuestro sitio web, aceptas estar sujeto a estos términos y condiciones.</p>
+    
+                <p><strong>2. Uso del Sitio Web</strong></p>
+                <p>2.1. El contenido de las páginas de este sitio web es para tu información general y uso exclusivo. Está sujeto a cambios sin previo aviso.</p>
+                <p>2.2. Este sitio web utiliza cookies para monitorear las preferencias de navegación. Si permites el uso de cookies, podemos almacenar información personal para su uso por terceros.</p>
+                <p>2.3. Ni nosotros ni terceros proporcionamos ninguna garantía en cuanto a la exactitud, puntualidad, rendimiento, integridad o idoneidad de la información y los materiales encontrados u ofrecidos en este sitio web para cualquier propósito particular.</p>
+    
+                <p><strong>3. Propiedad Intelectual</strong></p>
+                <p>3.1. Este sitio web contiene material que es propiedad de o licenciado a nosotros. Este material incluye, pero no se limita a, el diseño, la apariencia y los gráficos. Queda prohibida la reproducción, salvo de acuerdo con el aviso de copyright, que forma parte de estos términos y condiciones.</p>
+                <p>3.2. Todas las marcas comerciales reproducidas en este sitio web, que no son propiedad de o licenciadas al operador, se reconocen en el sitio web.</p>
+    
+                <p><strong>4. Política de Reembolso y Baneo</strong></p>
+                <p>4.1. <strong>Casos de Reembolso</strong>:</p>
+                <ul>
+                    <li>Se otorgará un reembolso únicamente en los siguientes casos:</li>
+                    <ul>
+                        <li>Si la página falla y no recibe un pase.</li>
+                        <li>Si el pase desaparece de su inventario sin su intervención.</li>
+                        <li>Si tenemos problemas con la donación que impiden la entrega del pase.</li>
+                    </ul>
+                </ul>
+                <p>4.2. <strong>No Elegibilidad para Reembolso</strong>:</p>
+                <ul>
+                    <li>No se otorgará un reembolso si:</li>
+                    <ul>
+                        <li>Envíe un comprobante falso.</li>
+                        <li>Si tiene problemas de reembolso con Supercell. No garantizamos ni solucionamos estos problemas ya que no están bajo nuestra jurisdicción.</li>
+                    </ul>
+                </ul>
+                <p>4.3. <strong>Motivos para el Baneo</strong>:</p>
+                <ul>
+                    <li>Se bloqueará a cualquier usuario que:</li>
+                    <ul>
+                        <li>Envíe un comprobante falso con el fin de obtener un pase.</li>
+                        <li>Insista excesivamente con un problema después de haber recibido una respuesta final de nuestro soporte.</li>
+                    </ul>
+                </ul>
+                <p>4.4. <strong>Riesgo de Compra</strong>:</p>
+                <p>Usted es consciente de los riesgos asociados con este tipo de compras. Puede recibir gemas negativas o ser baneado por Supercell. Estos problemas no son responsabilidad nuestra. Nuestro compromiso es únicamente que su pase llegue, según los términos establecidos.</p>
+                <p>4.5. <strong>Métodos de Entrega</strong>:</p>
+                <ul>
+                    <li><strong>Envío por Donación</strong>: El pase se entrega en un plazo de 7 días.</li>
+                    <li><strong>Envío Rápido</strong>: El pase se entrega en un plazo de 2 minutos, la compra se realiza mediante Supercell Store.</li>
+                </ul>
+    
+                <p><strong>5. Enlaces a Otros Sitios Web</strong></p>
+                <p>5.1. De vez en cuando, este sitio web también puede incluir enlaces a otros sitios web. Estos enlaces se proporcionan para tu conveniencia para proporcionar más información. No significa que respaldamos el(los) sitio(s) web. No tenemos responsabilidad por el contenido del sitio web enlazado.</p>
+    
+                <p><strong>6. Limitación de Responsabilidad</strong></p>
+                <p>6.1. En la medida máxima permitida por la ley aplicable, Barato Store Supercell no será responsable de ningún daño directo, indirecto, incidental, especial o consecuente que surja del uso o la imposibilidad de usar nuestro sitio web o servicios.</p>
+    
+                <p><strong>7. Ley Aplicable</strong></p>
+                <p>7.1. El uso de este sitio web y cualquier disputa que surja de dicho uso del sitio web está sujeto a las leyes de Bolivia.</p>
+    
+                <p><strong>8. Cambios en los Términos y Condiciones</strong></p>
+                <p>8.1. Barato Store Supercell se reserva el derecho de modificar estos términos y condiciones en cualquier momento. Es responsabilidad del usuario revisar regularmente los términos y condiciones para estar al tanto de cualquier cambio.</p>
+    
+                <p><strong>9. Política de Privacidad</strong></p>
+                <p>9.1. Nos comprometemos a garantizar que tu privacidad esté protegida. Si te pedimos que proporciones cierta información por la cual puedes ser identificado al usar este sitio web, puedes estar seguro de que solo se utilizará de acuerdo con esta declaración de privacidad.</p>
+                <p>9.2. Podemos recopilar la siguiente información:</p>
+                <ul>
+                    <li>Nombre y título del trabajo.</li>
+                    <li>Información de contacto, incluida la dirección de correo electrónico.</li>
+                    <li>Información demográfica como código postal, preferencias e intereses.</li>
+                    <li>Otra información relevante para encuestas de clientes/ofertas.</li>
+                </ul>
+                <p>9.3. La recopilación de esta información nos ayuda a comprender tus necesidades y ofrecerte un mejor servicio, y en particular por las siguientes razones:</p>
+                <ul>
+                    <li>Mantenimiento de registros internos.</li>
+                    <li>Mejora de nuestros productos y servicios.</li>
+                    <li>Envío de correos electrónicos promocionales sobre nuevos productos, ofertas especiales u otra información que pensamos que puede resultarte interesante.</li>
+                </ul>
+    
+                <p><strong>10. Seguridad</strong></p>
+                <p>10.1. Nos comprometemos a garantizar que tu información esté segura. Para evitar el acceso no autorizado o la divulgación, hemos puesto en marcha procedimientos físicos, electrónicos y administrativos adecuados para salvaguardar y asegurar la información que recopilamos en línea.</p>
+    
+                <p><strong>11. Derechos de los Usuarios</strong></p>
+                <p>11.1. Puedes solicitar detalles de la información personal que mantenemos sobre ti bajo la Ley de Protección de Datos de Bolivia. Si crees que alguna información que tenemos sobre ti es incorrecta o incompleta, por favor escríbenos o envíanos un correo electrónico lo antes posible. Corregiremos rápidamente cualquier información que se encuentre incorrecta.</p>
+            </main>
+            <footer>
+                <p>&copy; [2024] [Supercell Barato]. Todos los derechos reservados.</p>
+            </footer>
+        </div>
+    </div>
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>
