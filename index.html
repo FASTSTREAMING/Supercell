@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <header class="header">
-            <img src="logo.png" alt="Logo de la Empresa" class="logo"> <!-- Asegúrate de reemplazar 'logo.png' con la ruta correcta de tu logo -->
+            <img src="logo.png" alt="Logo de la Empresa" class="logo">
             <h1>Barato Supercell Shop</h1>
         </header>          
         <h1>Formulario de Contacto</h1>
@@ -51,6 +51,22 @@
     </div>
 
     <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <header>
+                <h1>Términos y Condiciones</h1>
+            </header>
+            <main>
+                <!-- Contenido de los términos y condiciones aquí -->
+            </main>
+            <footer>
+                <p>&copy; [2024] [Supercell Barato]. Todos los derechos reservados.</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module"> <div id="termsModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <header>
@@ -142,31 +158,36 @@
             </footer>
         </div>
     </div>
-    
-    
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDUUC4u9Gttri3xbNKGyS5cQfbs0HIeMzE",
+            authDomain: "supercell-91649.firebaseapp.com",
+            projectId: "supercell-91649",
+            storageBucket: "supercell-91649.appspot.com",
+            messagingSenderId: "237806197621",
+            appId: "1:237806197621:web:9d5a91d582d3b9c5a7113c",
+            measurementId: "G-XLZHRRT8JC"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // Function to save data to Firebase
+        window.saveDataToFirebase = function(nombre, apellido, telefono) {
+            const dbRef = ref(database, 'clientes');
+            return push(dbRef, {
+                nombre: nombre,
+                apellido: apellido,
+                telefono: telefono
+            });
+        }
+    </script>
+
     <script src="script.js"></script>
 </body>
 </html>
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyDUUC4u9Gttri3xbNKGyS5cQfbs0HIeMzE",
-      authDomain: "supercell-91649.firebaseapp.com",
-      projectId: "supercell-91649",
-      storageBucket: "supercell-91649.appspot.com",
-      messagingSenderId: "237806197621",
-      appId: "1:237806197621:web:9d5a91d582d3b9c5a7113c",
-      measurementId: "G-XLZHRRT8JC"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script>
