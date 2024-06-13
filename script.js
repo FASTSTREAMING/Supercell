@@ -11,13 +11,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     }
 
     // Enviar datos a Firebase
-    const db = window.firebaseDatabase;
-    const dbRef = window.firebaseRef(db, 'clientes');
-    window.firebasePush(dbRef, {
-        nombre: nombre,
-        apellido: apellido,
-        telefono: telefono
-    }).then(function() {
+    saveDataToFirebase(nombre, apellido, telefono).then(function() {
         alert('Datos enviados correctamente');
         document.getElementById('contactForm').reset(); // Reinicia el formulario
 
