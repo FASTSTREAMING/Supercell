@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Ver Usuarios</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDUUC4u9Gttri3xbNKGyS5cQfbs0HIeMzE",
+            authDomain: "supercell-91649.firebaseapp.com",
+            projectId: "supercell-91649",
+            storageBucket: "supercell-91649.appspot.com",
+            messagingSenderId: "237806197621",
+            appId: "1:237806197621:web:9d5a91d582d3b9c5a7113c",
+            measurementId: "G-XLZHRRT8JC"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // Function to load users
+        function loadUsers() {
+            const usersRef = ref(database, 'clientes');
+            onValue(usersRef, (snapshot) => {
+                const data = snapshot.val();
+                const usersList = document.getElementById('usersList');
+                usersList.innerHTML = '';  // Clear the list before appending new data
+                for (const key in data) {
+                    const user = data[key];
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `Nombre: ${user.nombre}, Apellido: ${user.apellido}, Teléfono: ${user.telefono}`;
+                    usersList.appendChild(listItem);
+                }
+            });
+        }
+
+        window.onload = function() {
+            document.getElementById('loginForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const pin = document.getElementById('pin').value;
+                // Reemplaza "1234" con el PIN que deseas usar
+                if (pin === '1234') {
+                    document.getElementById('login').style.display = 'none';
+                    document.getElementById('adminContent').style.display = 'block';
+                    loadUsers();
+                } else {
+                    alert('PIN incorrecto');
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container" id="login">
+        <header class="header">
+            <h1>Admin - Iniciar Sesión</h1>
+        </header>
+        <form id="loginForm">
+            <div class="input-container">
+                <i class="fas fa-key icon"></i>
+                <input type="password" id="pin" placeholder="Ingresa tu PIN" required>
+            </div>
+            <button type="submit">Ingresar</button>
+        </form>
+    </div>
+
+    <div class="container" id="adminContent" style="display: none;">
+        <header class="header">
+            <h1>Admin - Usuarios Registrados</h1>
+        </header>
+        <ul id="usersList">
+            <!-- Los usuarios se cargarán aquí -->
+        </ul>
+    </div>
+</body>
+</html>
