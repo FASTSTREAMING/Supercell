@@ -10,7 +10,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         return false;
     }
 
-    var mensaje = encodeURIComponent("Yo, " + nombre + " " + apellido + ", con número de teléfono " + telefono + ", confirmo que he leído y acepto los términos y condiciones. Autorizo el uso de mis datos conforme a la política establecida.");
+    var mensaje = encodeURIComponent("Yo, " + nombre + " " + apellido + ", con número de teléfono " + telefono + ", confirmo que he leído y acepto los términos y condiciones. Lei la politica de garantia y reembolso .Autorizo el uso de mis datos conforme a la política establecida.");
     var whatsappUrl = "https://wa.me/59176803090?text=" + mensaje;
 
     var thankYouPopup = document.getElementById('thankYouPopup');
