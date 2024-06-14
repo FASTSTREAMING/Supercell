@@ -10,30 +10,21 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         return false;
     }
 
-    // Enviar datos a Firebase
-    saveDataToFirebase(nombre, apellido, telefono).then(function() {
-        alert('Datos enviados correctamente');
-        document.getElementById('contactForm').reset(); // Reinicia el formulario
+    var mensaje = encodeURIComponent("Yo, " + nombre + " " + apellido + ", con número de teléfono " + telefono + ", confirmo que he leído y acepto los términos y condiciones. Autorizo el uso de mis datos conforme a la política establecida.");
+    var whatsappUrl = "https://wa.me/59176803090?text=" + mensaje;
 
-        // Redirigir a WhatsApp después de 3 segundos
-        var mensaje = encodeURIComponent("Yo, " + nombre + " " + apellido + ", con número de teléfono " + telefono + ", confirmo que he leído y acepto los términos y condiciones. Autorizo el uso de mis datos conforme a la política establecida.");
-        var whatsappUrl = "https://wa.me/59176803090?text=" + mensaje;
+    var thankYouPopup = document.getElementById('thankYouPopup');
+    thankYouPopup.style.display = "block";
 
-        var thankYouPopup = document.getElementById('thankYouPopup');
-        thankYouPopup.style.display = "block";
+    var progressBar = document.getElementById('progressBar');
+    progressBar.style.width = "0%";
+    setTimeout(function() {
+        progressBar.style.width = "100%";
+    }, 10);
 
-        var progressBar = document.getElementById('progressBar');
-        progressBar.style.width = "0%";
-        setTimeout(function() {
-            progressBar.style.width = "100%";
-        }, 10);
-
-        setTimeout(function() {
-            window.location.href = whatsappUrl;
-        }, 3000);
-    }).catch(function(error) {
-        console.error('Error al enviar los datos:', error);
-    });
+    setTimeout(function() {
+        window.location.href = whatsappUrl;
+    }, 3000);
 });
 
 // Manejo de la ventana modal para términos y condiciones
