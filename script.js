@@ -11,7 +11,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     }
 
     var mensaje = encodeURIComponent("Yo, " + nombre + " " + apellido + ", con número de teléfono " + telefono + ", confirmo que he leído y acepto los términos y condiciones. Lei la politica de garantia y reembolso .Autorizo el uso de mis datos conforme a la política establecida.");
-    var whatsappUrl = "https://wa.me/59169316238?text=" + mensaje;
+    var whatsappUrl = "https://wa.me/59178226437?text=" + mensaje;
 
     var thankYouPopup = document.getElementById('thankYouPopup');
     thankYouPopup.style.display = "block";
